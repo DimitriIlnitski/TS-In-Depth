@@ -1,6 +1,6 @@
 import { ReferenceItem, UL, RefBook, Shelf } from './classes';
 import { Book, Librarian, Logger, Magazine } from './interfaces';
-import { getAllBooks, printRefBook, purge, getObjectProperty, createCustomer } from './functions';
+import { getAllBooks, printRefBook, purge, getObjectProperty, createCustomer, getBooksByCategory, logCategorySearch, getBooksByCategoryPromise, logSearchResults } from './functions';
 import { Library } from './classes/library';
 import { Category } from './enums';
 import {BookRequiredFields, UpdatedBook, СreateCustomerFunctionType} from './types';
@@ -204,12 +204,12 @@ function showHello(divName: string, name: string) {
 // };
 
 // Task 07.01
-const inventory: Book[] = [
-    { id: 10, title: 'The C Programming Language', author: '???', available: true, category: Category.Software},
-    { id: 11, title: 'Code Complete', author: 'Steve McConnell', available: true, category: Category.Software },
-    { id: 12, title: '8-Bit Graphics with Cobol', author: 'A. B.', available: true, category: Category.Software },
-    { id: 13, title: 'Cool autoexec.bat Scripts!', author: 'C. D.', available: true, category: Category.Software },
-];
+// const inventory: Book[] = [
+//     { id: 10, title: 'The C Programming Language', author: '???', available: true, category: Category.Software},
+//     { id: 11, title: 'Code Complete', author: 'Steve McConnell', available: true, category: Category.Software },
+//     { id: 12, title: '8-Bit Graphics with Cobol', author: 'A. B.', available: true, category: Category.Software },
+//     { id: 13, title: 'Cool autoexec.bat Scripts!', author: 'C. D.', available: true, category: Category.Software },
+// ];
 
 // const result1 = purge(inventory);
 // console.log(result1);
@@ -252,6 +252,72 @@ const inventory: Book[] = [
 //     id: 1,
 //     pages: 300
 // };
-let params: Parameters<СreateCustomerFunctionType>;
-params = ['Anna', 30, 'Kyiv'];
-createCustomer(...params);
+// let params: Parameters<СreateCustomerFunctionType>;
+// params = ['Anna', 30, 'Kyiv'];
+// createCustomer(...params);
+
+// Task 08.01, 08.02
+// const favoriteLibrarian1 = new UL.UniversityLibrarian();
+// const favoriteLibrarian2 = new UL.UniversityLibrarian();
+// favoriteLibrarian1['a'] =1;
+// UL.UniversityLibrarian['a'] =2;
+// UL.UniversityLibrarian.prototype['a'] =3;
+// console.log(favoriteLibrarian1);
+// favoriteLibrarian1.name = 'Anna';
+// favoriteLibrarian1['printLibrarian']();
+
+
+// Task 08.03
+// const favoriteLibrarian = new UL.UniversityLibrarian();
+// console.log(favoriteLibrarian);
+// favoriteLibrarian.assistFaculty = null;
+// favoriteLibrarian.assistCustomer= null;
+
+// Task 08.04
+// const refBook: RefBook = new RefBook(1, 'Learn Typsescript', 2022, 2);
+// refBook.printItem();
+
+// Task 08.05
+// const favoriteLibrarian = new UL.UniversityLibrarian();
+// console.log(favoriteLibrarian);
+// favoriteLibrarian.name = 'Anna';
+// favoriteLibrarian.assistCustomer('Boris', 'Learn TypeScript');
+
+// Task 08.06
+// const favoriteLibrarian = new UL.UniversityLibrarian();
+// favoriteLibrarian.name = 'Anna';
+// console.log(favoriteLibrarian.name);
+// favoriteLibrarian.assistCustomer('Boris', 'Learn TypeScript');
+// console.log(favoriteLibrarian);
+
+// Task 08.07
+// const refBook: RefBook = new RefBook(1, 'Learn Typsescript', 2022, 2);
+// // refBook.copies = 10;
+// refBook.copies = -10;
+// console.log(refBook.copies);
+
+// Task 09.01
+// console.log('Begin');
+// getBooksByCategory(Category.JavaScript, logCategorySearch);
+// getBooksByCategory(Category.Software, logCategorySearch);
+// console.log('End');
+
+// Task 09.02
+// console.log('Begin');
+// getBooksByCategoryPromise(Category.JavaScript)
+//     .then(titles =>{
+//         console.log(titles);
+//         return Promise.resolve(titles.length);
+//     })
+//     .then (n => console.log(n))
+//     .catch(reason => console.error(reason));
+// getBooksByCategoryPromise(Category.Software)
+//     .then(titles => console.log(titles))
+//     .catch(reason => console.error(reason));
+// console.log('End');
+
+// Task 09.03
+// console.log('Begin');
+// logSearchResults(Category.JavaScript);
+// logSearchResults(Category.Software).catch(err => console.log(err));
+// console.log('End');
